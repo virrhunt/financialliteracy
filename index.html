@@ -27,14 +27,16 @@
   border-radius: 6px;
   position: absolute;
   z-index: 1;
+  transition: opacity 0.3s
 }
 
-        .tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext {
   visibility: visible;
 }
-</style>
-
-
+    .tooltip:focus .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+    }
     </style>
 </head>
 <body>
