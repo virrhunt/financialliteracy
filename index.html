@@ -1,5 +1,7 @@
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -30,7 +32,13 @@
   position: absolute;
   z-index: 1;
   transition: opacity 0.3s
-}
+  opacity: 0;
+  pointer-events: none;
+        }
+.tooltip.active .tooltiptext {
+            visibility: visible;
+            opacity: 1;}
+
 
 .tooltip:hover .tooltiptext {
     visibility: visible;}
@@ -70,5 +78,21 @@ which differ from mutual funds in their trading window and management style. Whi
 <br>
     Attributions:
 </p>
+<script>
+    // Function to toggle tooltip visibility on click (for mobile)
+    function toggleTooltip(element) {
+        element.classList.toggle("active");
+    }
+
+    // Optional: Close tooltip if clicked outside of it on mobile
+    document.addEventListener('click', function(event) {
+        const tooltips = document.querySelectorAll('.tooltip');
+        tooltips.forEach(function(tooltip) {
+            if (!tooltip.contains(event.target)) {
+                tooltip.classList.remove('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
